@@ -1,0 +1,40 @@
+﻿<div class="container mt-5">
+    <h2 class="text-center">Somali Currency Converter</h2>
+    <div class="card p-4 shadow">
+        <form asp-controller="Currency" asp-action="Index" method="post">
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Amount</label>
+                    <input type="number" name="amount" class="form-control" required step="0.01" />
+                </div>
+                <div class="col-md-3">
+                    <label>From</label>
+                    <select name="fromCurrency" class="form-control">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="SOS">SOS</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>To</label>
+                    <select name="toCurrency" class="form-control">
+                        <option value="SOS">SOS</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary mt-4 w-100">Convert Now</button>
+                </div>
+            </div>
+        </form>
+
+        @if (ViewBag.Result != null)
+        {
+            <div class="alert alert-success mt-4 text-center">
+                <h4>@ViewBag.Result</h4>
+                <a asp-action="History" class="btn btn-link">View Full History</a>
+            </div>
+        }
+    </div>
+</div>
